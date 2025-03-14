@@ -1,0 +1,126 @@
+/*
+✅1.  Agrega el código para asegurar que todos los elementos tengan un comportamiento consistente en cuanto a márgenes, padding y tamaño.
+✅2.  En el navbar agrega lo siguiente:
+        ✅Flexbox para alinear el logo y los enlaces horizontalmente.
+        ✅Fondo de color y estilos de texto para el navbar.
+✅3.  A la clase titulo agrega lo siguiente:
+        ✅Centra el texto y aplica un fondo de color.
+        ✅Flexbox para centrar el contenido vertical y horizontalmente.
+✅4.  A la clase footer agrega lo siguiente:
+        ✅Flexbox para centrar el texto.
+        ✅Un fondo de color y estilos de texto.
+✅5.  A la clase galeria agrega lo siguiente:
+        ✅CSS Grid para organizar las imágenes en una       cuadrícula.
+        ✅Usa grid-template-columns y grid-template-rows para crear una cuadrícula flexible.
+        ✅Usa gap para añadir espacio entre las imágenes. 
+        Bordes redondeados y sombras.
+*/
+:root {
+    --tamano-titulo: calc(0.8em + 0.1vw + 0.1vh);
+    --tamano-parrafo: calc(0.5em + 0.05vw + 0.5vh);
+    --navbar: #23338C;
+    --deepblue: rgba(35, 50, 140, 0.5);
+    --lightblue: rgba(68, 87, 191, 0.7);
+    --lightviolet: rgba(121, 135, 216, 1);
+    --grayviolet: rgba(153, 163, 216, 0.2);
+    --gray: rgba(166, 193, 216, 0.1);
+    --navbar-gradient: linear-gradient(to right, var(--navbar), var(--lightblue));
+    
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--gray);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navbar-gradient);
+    padding: 1.5rem;
+}
+.navbar-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: var(--tamano-parrafo);
+}
+.navbar-links {
+    font-size: var(--tamano-parrafo);
+    display: flex;
+    gap: 1rem; 
+}
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+}
+.titulo {
+    text-align: center;
+    color: var(--deepblue);
+    background: var(--grayviolet);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: var(--tamano-titulo);
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--navbar-gradient);
+    color: white;
+    bottom: 0;
+    position: sticky;
+    padding: 1rem;
+    text-align: center;
+    font-size: var(--tamano-parrafo);
+}
+.galeria {
+    flex: 1; /* ocupa el espacio restante */
+    padding: 20px;
+}
+.contenedor-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 15px; 
+    padding: 1em;
+}
+.imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/*tablet*/
+@media (min-width: 780px) {
+    .contenedor-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+/*laptop*/
+@media (min-width: 1024px) {
+    .contenedor-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+/*pantalla extendida*/
+@media (min-width: 1440px) {
+    .contenedor-grid {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
